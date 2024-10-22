@@ -9,9 +9,9 @@ interface PaymentPayload {
 }
 
 export const useBraintreeSetup = (
-    clientToken: string | undefined,
+    clientToken: string | null,
     callback: () => void,
-    access_token: string
+    access_token: string | null
 ): boolean => {
     const [isLoading, setIsLoading] = useState(true);
 
@@ -82,7 +82,7 @@ export const useBraintreeSetup = (
                                                             paymentEndpoints.CompleteBraintreeSetup.Method,
                                                             paymentPayload,
                                                             undefined,
-                                                            access_token
+                                                            access_token || ""
                                                         ).then(() => callback());
                                                     }
                                                 );
