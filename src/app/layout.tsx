@@ -3,8 +3,6 @@ import "./globals.css";
 import React from "react";
 import ReduxProvider from "@/components/common/redux-provider";
 import MsalRootProvider from "@/msal/root-provider";
-import NavBar from "@/components/common/nav-bar";
-import Fulfill3d from "@/svg/fulfill3d";
 
 export const metadata: Metadata = {
   title: "POD",
@@ -21,7 +19,6 @@ const RootLayout: React.FC<Readonly<RootLayoutProps>> = ({ children }) => {
         <body className="h-screen flex flex-col">
         <ReduxProvider>
             <MsalRootProvider>
-                <NavBar brandName="POD" logoSvg={Fulfill3d} links={[]}/>
                 <main className="flex-1 pt-16 overflow-hidden">
                     {children}
                 </main>
