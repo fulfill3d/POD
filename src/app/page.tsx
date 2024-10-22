@@ -23,11 +23,11 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-3xl">
             {/* GitHub Source Code Card */}
             <div
-                onClick={() => window.open('https://github.com/fulfill3d/POD_Frontend', '_blank')}
+                onClick={() => window.open('https://github.com/fulfill3d/POD_Backend', '_blank')}
                 className="cursor-pointer p-6 bg-indigo-600 text-white rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-xl"
             >
               <h2 className="text-2xl font-bold">View Source Code</h2>
-              <p className="mt-2 text-lg">Check out the GitHub repository for the frontend code.</p>
+              <p className="mt-2 text-lg">Check out the GitHub repository for the source code.</p>
             </div>
 
             {/* Documentation Card */}
