@@ -1,0 +1,19 @@
+trigger:
+  branches:
+    include:
+      - main
+  paths:
+    include:
+      - 'backend/API/Admin/Model/*'
+      - 'backend/Common/Service/*'
+      - 'backend/Common/Database/*'
+      - 'backend/Common/Utils/*'
+      - 'backend/Integrations/BlobClient/*'
+
+variables:
+  vmImageName: 'windows-latest'
+  workingDirectory: '$(System.DefaultWorkingDirectory)/API/Admin/Model/Function'
+  packageName: 'AdminModel'
+
+steps:
+  - template: ../../../../../DevOps/ci-dotNet8-AzureFunction-template.yml

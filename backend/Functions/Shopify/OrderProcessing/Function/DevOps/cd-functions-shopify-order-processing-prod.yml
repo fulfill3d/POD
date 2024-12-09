@@ -1,0 +1,20 @@
+trigger: none
+pr: none
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  ciPipeline: 'ci-functions-shopify-order-processing-main'
+  functionAppName: 'pod-functions-shopify-order-processing-alpha'
+  packageName: 'ShopifyOrderProcessing'
+  project: 'POD'
+
+resources:
+  pipelines:
+    - pipeline: ciFunctionsShopifyOrderProcessingMain
+      source: 'ci-functions-shopify-order-processing-main'
+      trigger: true
+
+steps:
+  - template: ../../../../../DevOps/cd-dotNet8-AzureFunction-template.yml

@@ -1,0 +1,20 @@
+trigger: none
+pr: none
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  ciPipeline: 'ci-functions-shopify-create-webhooks-main'
+  functionAppName: 'pod-functions-shopify-create-webhooks-alpha'
+  packageName: 'ShopifyCreateWebhooks'
+  project: 'POD'
+
+resources:
+  pipelines:
+    - pipeline: ciFunctionsShopifyCreateWebhooksMain
+      source: 'ci-functions-shopify-create-webhooks-main'
+      trigger: true
+
+steps:
+  - template: ../../../../../DevOps/cd-dotNet8-AzureFunction-template.yml

@@ -1,8 +1,6 @@
-# POD Frontend
+# POD
 
 - **App**: Visit https://pod.fulfill3d.com to see the application demo.
-- **Backend**: Visit https://github.com/fulfill3d/POD_Backend to see the backend repo
-- **Docs**: Visit https://fulfill3d.com/projects/4f7334bd-f946-446e-81e7-77ea52c5fb9c to see the project wiki.
 
 An enterprise level cloud-based ecommerce app with 3D print-on-demand business model having full integration capabilities to Shopify stores with Braintree and Stripe payment options.
 
@@ -10,7 +8,9 @@ An enterprise level cloud-based ecommerce app with 3D print-on-demand business m
 
 - [Prerequisites](#prerequisites)
 - [Project Structure](#project-structure)
-- [Technologies Used](#technologies-used)
+- [Microservices](#microservices)
+- [Frontend Tech Stack](#frontend-tech-stack)
+- [Backend Tech Stack](#backend-tech-stack)
 
 ## Prerequisites
 
@@ -34,7 +34,39 @@ Here is an overview of the key directories in the project:
 - **`src/types`**: Global types.
 - **`src/utils`**: Utility functions and helper methods used across different parts of the project to perform common tasks like formatting, validation, etc.
 
-## Technologies Used
+## Microservices
+
+### Admin API
+- **POD.API.Admin.Filament:** ...
+- **POD.API.Admin.Model:** ...
+
+### Seller API
+- **POD.API.Seller.Address:** ...
+- **POD.API.Seller.Payment:** ...
+- **POD.API.Seller.Product:** ...
+- **POD.API.Seller.Store:** ...
+
+### User API
+- **POD.API.User.Identity:** ...
+
+### Functions
+- **POD.Functions.Geometry:** ...
+- **POD.Functions.Payment.Schedule:** ...
+- **POD.Functions.Payment.Processing.Braintree:** ...
+- **POD.Functions.Payment.Processing.Stripe:** ...
+- **POD.Functions.Payment.PostProcessing:** ...
+- **POD.Functions.Payment.PublishSchedule:** ...
+- **POD.Functions.Shopify.AppInstall:** ...
+- **POD.Functions.Shopify.AppUninstall:** ...
+- **POD.Functions.Shopify.CallExecutes:** ...
+- **POD.Functions.Shopify.CreateWebhooks:** ...
+- **POD.Functions.Shopify.DeleteProduct:** ...
+- **POD.Functions.Shopify.OrderProcessing:** ...
+- **POD.Functions.Shopify.PublishProcessing:** ...
+- **POD.Functions.Shopify.UpdateInventory:** ...
+- **POD.Functions.Shopify.WebhookEndpoints:** ...
+
+## Frontend Tech Stack
 
 - **Next.js (14.2.15)**: A React framework with server-side rendering and static site generation.
 - **React (18)**: A JavaScript library for building user interfaces.
@@ -50,3 +82,15 @@ Here is an overview of the key directories in the project:
 - **React Stripe.js (2.3.1)**: React components for Stripe payments.
 - **Braintree Web (3.97.3)**: A JavaScript SDK for Braintree payment processing.
 - **ESLint**: A linter to ensure code quality and consistency.
+
+## Backend Tech Stack
+
+- **Backend:** .NET 8 (Isolated Worker), Azure Functions v4
+- **Messaging:** Azure Service Bus
+- **Storage:** Azure Blob Storage
+- **Database:** Azure SQL Database
+- **Database Migration:** Fluent Migrator with version control
+- **Authentication:** Azure AD B2C
+- **Configuration & Secrets Management:** Azure App Configuration, Azure Key Vault
+- **Hosting:** Microsoft Azure
+- **External APIs:** Braintree, Stripe, Shopify

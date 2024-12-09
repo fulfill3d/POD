@@ -1,0 +1,20 @@
+trigger: none
+pr: none
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  ciPipeline: 'ci-functions-shopify-update-inventory-main'
+  functionAppName: 'pod-functions-shopify-update-inventory-alpha'
+  packageName: 'ShopifyUpdateInventory'
+  project: 'POD'
+
+resources:
+  pipelines:
+    - pipeline: ciFunctionsShopifyUpdateInventoryMain
+      source: 'ci-functions-shopify-update-inventory-main'
+      trigger: true
+
+steps:
+  - template: ../../../../../DevOps/cd-dotNet8-AzureFunction-template.yml

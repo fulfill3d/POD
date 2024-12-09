@@ -1,0 +1,18 @@
+trigger:
+  branches:
+    include:
+      - main
+  paths:
+    include:
+      - 'backend/Functions/Geometry/*'
+      - 'backend/Common/Service/*'
+      - 'backend/Common/Database/*'
+      - 'backend/Common/Utils/*'
+
+variables:
+  vmImageName: 'windows-latest'
+  workingDirectory: '$(System.DefaultWorkingDirectory)/Functions/Geometry/Function'
+  packageName: 'Geometry'
+
+steps:
+  - template: ../../../../DevOps/ci-dotNet8-AzureFunction-template.yml

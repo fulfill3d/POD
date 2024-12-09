@@ -1,0 +1,20 @@
+trigger:
+  branches:
+    include:
+      - main
+  paths:
+    include:
+      - 'backend/API/Seller/Payment/*'
+      - 'backend/API/Seller/Common/Services/*'
+      - 'backend/API/Common/Core/*'
+      - 'backend/Common/Database/*'
+      - 'backend/Integrations/BrainTreeClient/*'
+      - 'backend/Integrations/StripeClient/*'
+
+variables:
+  vmImageName: 'windows-latest'
+  workingDirectory: '$(System.DefaultWorkingDirectory)/API/Seller/Payment/Function'
+  packageName: 'SellerPayment'
+
+steps:
+  - template: ../../../../../DevOps/ci-dotNet8-AzureFunction-template.yml

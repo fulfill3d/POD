@@ -1,0 +1,19 @@
+trigger:
+  branches:
+    include:
+      - main
+  paths:
+    include:
+      - 'backend/Functions/Payment/Schedule/*'
+      - 'backend/Functions/Payment/Common/Data/*'
+      - 'backend/Common/Database/*'
+      - 'backend/Common/Service/*'
+      - 'backend/Integrations/ServiceBusClient/*'
+
+variables:
+  vmImageName: 'windows-latest'
+  workingDirectory: '$(System.DefaultWorkingDirectory)/Functions/Payment/Schedule/Function'
+  packageName: 'PaymentSchedule'
+
+steps:
+  - template: ../../../../../DevOps/ci-dotNet8-AzureFunction-template.yml

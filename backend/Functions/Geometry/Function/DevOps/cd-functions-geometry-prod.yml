@@ -1,0 +1,20 @@
+trigger: none
+pr: none
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  ciPipeline: 'ci-functions-geometry-main'
+  functionAppName: 'pod-functions-geometry-alpha'
+  packageName: 'Geometry'
+  project: 'POD'
+
+resources:
+  pipelines:
+    - pipeline: ciFunctionsGeometryMain
+      source: 'ci-functions-geometry-main'
+      trigger: true
+
+steps:
+  - template: ../../../../DevOps/cd-dotNet8-AzureFunction-template.yml

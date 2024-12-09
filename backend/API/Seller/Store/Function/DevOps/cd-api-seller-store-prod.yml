@@ -1,0 +1,20 @@
+trigger: none
+pr: none
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  ciPipeline: 'ci-api-seller-store-main'
+  functionAppName: 'pod-api-seller-store-alpha'
+  packageName: 'SellerStore'
+  project: 'POD'
+
+resources:
+  pipelines:
+    - pipeline: ciApiSellerStoreMain
+      source: 'ci-api-seller-store-main'
+      trigger: true
+
+steps:
+  - template: ../../../../../DevOps/cd-dotNet8-AzureFunction-template.yml

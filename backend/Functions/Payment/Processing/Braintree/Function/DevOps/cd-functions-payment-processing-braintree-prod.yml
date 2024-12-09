@@ -1,0 +1,20 @@
+trigger: none
+pr: none
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  ciPipeline: 'ci-functions-payment-processing-braintree-main'
+  functionAppName: 'pod-functions-payment-processing-braintree-alpha'
+  packageName: 'PaymentProcessingBraintree'
+  project: 'POD'
+
+resources:
+  pipelines:
+    - pipeline: ciFunctionsPaymentProcessingBraintreeMain
+      source: 'ci-functions-payment-processing-braintree-main'
+      trigger: true
+
+steps:
+  - template: ../../../../../../DevOps/cd-dotNet8-AzureFunction-template.yml

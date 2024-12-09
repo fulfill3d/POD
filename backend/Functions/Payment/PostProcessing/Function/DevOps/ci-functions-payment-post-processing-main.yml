@@ -1,0 +1,18 @@
+trigger:
+  branches:
+    include:
+      - main
+  paths:
+    include:
+      - 'backend/Functions/Payment/PostProcessing/*'
+      - 'backend/Functions/Payment/Common/Data/*'
+      - 'backend/Common/Service/*'
+      - 'backend/Common/Database/*'
+
+variables:
+  vmImageName: 'windows-latest'
+  workingDirectory: '$(System.DefaultWorkingDirectory)/Functions/Payment/PostProcessing/Function'
+  packageName: 'PaymentPostProcessing'
+
+steps:
+  - template: ../../../../../DevOps/ci-dotNet8-AzureFunction-template.yml
