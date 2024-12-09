@@ -1,0 +1,17 @@
+trigger:
+  branches:
+    include:
+      - main
+  paths:
+    include:
+      - 'backend/API/Admin/Filament/*'
+      - 'backend/Common/Service/*'
+      - 'backend/Common/Database/*'
+
+variables:
+  vmImageName: 'windows-latest'
+  workingDirectory: '$(System.DefaultWorkingDirectory)/API/Admin/Filament/Function'
+  packageName: 'AdminFilament'
+
+steps:
+  - template: ../../../../../DevOps/ci-dotNet8-AzureFunction-template.yml

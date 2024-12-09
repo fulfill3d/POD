@@ -1,0 +1,18 @@
+trigger:
+  branches:
+    include:
+      - main
+  paths:
+    include:
+      - 'backend/API/Seller/Product/*'
+      - 'backend/API/Seller/Common/Services/*'
+      - 'backend/API/Common/Core/*'
+      - 'backend/Common/Database/*'
+
+variables:
+  vmImageName: 'windows-latest'
+  workingDirectory: '$(System.DefaultWorkingDirectory)/API/Seller/Product/Function'
+  packageName: 'SellerProduct'
+
+steps:
+  - template: ../../../../../DevOps/ci-dotNet8-AzureFunction-template.yml

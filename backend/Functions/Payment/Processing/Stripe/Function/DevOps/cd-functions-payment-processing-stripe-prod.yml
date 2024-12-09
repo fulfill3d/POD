@@ -1,0 +1,20 @@
+trigger: none
+pr: none
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  ciPipeline: 'ci-functions-payment-processing-stripe-main'
+  functionAppName: 'pod-functions-payment-processing-stripe-alpha'
+  packageName: 'PaymentProcessingStripe'
+  project: 'POD'
+
+resources:
+  pipelines:
+    - pipeline: ciFunctionsPaymentProcessingStripeMain
+      source: 'ci-functions-payment-processing-stripe-main'
+      trigger: true
+
+steps:
+  - template: ../../../../../../DevOps/cd-dotNet8-AzureFunction-template.yml

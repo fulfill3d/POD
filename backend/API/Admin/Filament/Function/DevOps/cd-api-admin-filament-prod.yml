@@ -1,0 +1,20 @@
+trigger: none
+pr: none
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  ciPipeline: 'ci-api-admin-filament-main'
+  functionAppName: 'pod-api-admin-filament-alpha'
+  packageName: 'AdminFilament'
+  project: 'POD'
+
+resources:
+  pipelines:
+    - pipeline: ciApiAdminFilamentMain
+      source: 'ci-api-admin-filament-main'
+      trigger: true
+
+steps:
+  - template: ../../../../../DevOps/cd-dotNet8-AzureFunction-template.yml

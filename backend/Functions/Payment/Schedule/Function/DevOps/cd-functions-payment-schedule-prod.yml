@@ -1,0 +1,20 @@
+trigger: none
+pr: none
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  ciPipeline: 'ci-functions-payment-schedule-main'
+  functionAppName: 'pod-functions-payment-schedule-alpha'
+  packageName: 'PaymentSchedule'
+  project: 'POD'
+
+resources:
+  pipelines:
+    - pipeline: ciFunctionsPaymentScheduleMain
+      source: 'ci-functions-payment-schedule-main'
+      trigger: true
+
+steps:
+  - template: ../../../../../DevOps/cd-dotNet8-AzureFunction-template.yml

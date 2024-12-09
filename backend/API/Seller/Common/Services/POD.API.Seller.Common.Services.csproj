@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\..\..\Common\Core\POD.Common.Core.csproj" />
+      <ProjectReference Include="..\..\..\..\Common\Database\POD.Common.Database.csproj" />
+      <ProjectReference Include="..\..\..\..\Common\Service\POD.Common.Service.csproj" />
+      <ProjectReference Include="..\Data\POD.API.Seller.Common.Data.csproj" />
+    </ItemGroup>
+
+</Project>

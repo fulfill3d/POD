@@ -1,0 +1,20 @@
+trigger: none
+pr: none
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  ciPipeline: 'ci-api-seller-address-main'
+  functionAppName: 'pod-api-seller-address-alpha'
+  packageName: 'SellerAddress'
+  project: 'POD'
+
+resources:
+  pipelines:
+    - pipeline: ciApiSellerAddressMain
+      source: 'ci-api-seller-address-main'
+      trigger: true
+
+steps:
+  - template: ../../../../../DevOps/cd-dotNet8-AzureFunction-template.yml

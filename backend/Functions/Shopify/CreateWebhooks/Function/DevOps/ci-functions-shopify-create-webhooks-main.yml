@@ -1,0 +1,19 @@
+trigger:
+  branches:
+    include:
+      - main
+  paths:
+    include:
+      - 'backend/Functions/Shopify/CreateWebhooks/*'
+      - 'backend/Common/Service/*'
+      - 'backend/Common/Database/*'
+      - 'backend/Common/Utils/*'
+      - 'backend/Integrations/ShopifyClient/*'
+
+variables:
+  vmImageName: 'windows-latest'
+  workingDirectory: '$(System.DefaultWorkingDirectory)/Functions/Shopify/CreateWebhooks/Function'
+  packageName: 'ShopifyCreateWebhooks'
+
+steps:
+  - template: ../../../../../DevOps/ci-dotNet8-AzureFunction-template.yml

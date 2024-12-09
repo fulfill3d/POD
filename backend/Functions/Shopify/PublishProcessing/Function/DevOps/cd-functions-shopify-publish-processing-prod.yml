@@ -1,0 +1,20 @@
+trigger: none
+pr: none
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  ciPipeline: 'ci-functions-shopify-publish-processing-main'
+  functionAppName: 'pod-functions-shopify-publish-processing-alpha'
+  packageName: 'ShopifyPublishProcessing'
+  project: 'POD'
+
+resources:
+  pipelines:
+    - pipeline: ciFunctionsShopifyPublishProcessingMain
+      source: 'ci-functions-shopify-publish-processing-main'
+      trigger: true
+
+steps:
+  - template: ../../../../../DevOps/cd-dotNet8-AzureFunction-template.yml

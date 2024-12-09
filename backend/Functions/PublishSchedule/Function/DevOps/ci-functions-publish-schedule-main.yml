@@ -1,0 +1,18 @@
+trigger:
+  branches:
+    include:
+      - main
+  paths:
+    include:
+      - 'backend/Functions/PublishSchedule/*'
+      - 'backend/Common/Core/*'
+      - 'backend/Common/Database/*'
+      - 'backend/Integrations/ServiceBusClient/*'
+
+variables:
+  vmImageName: 'windows-latest'
+  workingDirectory: '$(System.DefaultWorkingDirectory)/Functions/PublishSchedule/Function'
+  packageName: 'PublishSchedule'
+
+steps:
+  - template: ../../../../DevOps/ci-dotNet8-AzureFunction-template.yml

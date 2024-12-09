@@ -1,0 +1,20 @@
+trigger: none
+pr: none
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  ciPipeline: 'ci-api-seller-payment-main'
+  functionAppName: 'pod-api-seller-payment-alpha'
+  packageName: 'SellerPayment'
+  project: 'POD'
+
+resources:
+  pipelines:
+    - pipeline: ciApiSellerPaymentMain
+      source: 'ci-api-seller-payment-main'
+      trigger: true
+
+steps:
+  - template: ../../../../../DevOps/cd-dotNet8-AzureFunction-template.yml
